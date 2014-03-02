@@ -1,0 +1,42 @@
+@main("Welcome to Play") {
+    <script src="@routes.Assets.at("javascripts/app.js")" type="text/javascript"></script>
+}{
+
+    <div id="container"></div>
+
+    <script id="theTemplate" type="text/html">
+        <div class="center">
+            <div class="head">Totalt innsamlet:</div>
+            <div class="val">{{ totalAmountFormatted }}</div>
+        </div>
+        <div class="center">
+            <div class="head">Antall bidrag</div>
+            <div class="val">{{ totalCnt }}</div>
+        </div>
+
+        <div class="lists">
+            <div class="list">
+                <h3>Topp 20 liste</h3>
+                {{#topList:i}}
+                <dl>
+                    <dt>{{ who }}</dt>
+                    <dd>{{ amountFormatted }}</dd>
+                </dl>
+                {{/topList}}
+            </div>
+
+            <div class="list">
+                <h3>Siste 20 bidrag</h3>
+                {{#last:i}}
+                <dl>
+                    <dt>{{ who }}</dt>
+                    <dd>{{ amountFormatted }}</dd>
+                </dl>
+                {{/last}}
+            </div>
+        </div>
+
+
+    </script>
+
+}

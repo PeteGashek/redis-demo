@@ -1,0 +1,47 @@
+body{
+    color: #555;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+}
+
+#container{
+    margin-top:100px;
+}
+
+.head{
+    font-size: 28pt;
+    margin-top:20px;
+}
+
+.val {
+    font-size: 20pt;
+}
+
+.center {
+    text-align: center;
+}
+
+.lists{
+    margin:auto;
+    width:650px;
+}
+
+.list {
+    display: inline-block;
+    width:300px;
+    vertical-align: top;
+    margin: 0 10px;
+}
+
+.list dl {
+    margin: 5px 0;
+}
+.list dt {
+    display:inline-block;
+    width:170px;
+}
+.list dd {
+    float:right;
+    width:120px;
+    margin-left: 0;
+    text-align: right;
+}
