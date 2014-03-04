@@ -30,7 +30,6 @@ func Reg() {
 	fmt.Print(reg.ToString()+"\n\n")
 
 	// everything is ok, move forward with registration
-	keys := new(KeyGen)
 
 	conn := Conn()
 	defer conn.Close()
@@ -41,11 +40,11 @@ func Reg() {
 		os.Exit(1)
 	}
 
-	conn.Send("LPUSH", keys.Last(), regJson)
-	conn.Send("LTRIM", keys.Last(), 0, 19)
-	conn.Send("ZADD", keys.Contributors(), reg.Amount, regJson)
-	conn.Send("INCRBY", keys.TotAmount(), reg.Amount)
-	conn.Send("INCR", keys.TotalCnt())
+	conn.Send("LPUSH", "last", regJson)
+	conn.Send("LTRIM", "last", 0, 19)
+	conn.Send("ZADD", "contributors", reg.Amount, regJson)
+	conn.Send("INCRBY", "total:amount", reg.Amount)
+	conn.Send("INCR", "total:cnt")
 
 	conn.Flush()
 	conn.Do("publish", "contributions-updated", "updated")

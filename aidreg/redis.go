@@ -16,22 +16,3 @@ func Conn() redis.Conn {
 
 	return conn
 }
-
-type KeyGen struct {
-}
-
-func (KeyGen) Last() string {
-	return "last"
-}
-
-func (KeyGen) Contributors() string {
-	return "contributors"
-}
-
-func (KeyGen) TotAmount() string {
-	return "total:amount"
-}
-
-func (KeyGen) TotalCnt() string {
-	return "total:cnt"
-}
