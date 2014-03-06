@@ -5,7 +5,6 @@ import akka.actor.Props;
 import play.Application;
 import play.GlobalSettings;
 import play.libs.Akka;
-import utils.JedisListener;
 
 /**
  * Created by lars on 3/1/14.

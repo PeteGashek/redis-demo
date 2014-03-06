@@ -17,6 +17,8 @@ public class JedisListenerActor extends UntypedActor {
             if ("updated".equals(message)) {
                 EventHandlerActor.instance.tell(new Msg.DataReloaded(), ActorRef.noSender());
             }
+
+            //Some
         }
 
         @Override

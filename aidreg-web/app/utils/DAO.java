@@ -22,11 +22,6 @@ public class DAO {
 
     private static JedisPool jpool = null;
 
-    private final static String KEY_LAST = "last";
-    private final static String KEY_CONTRIBUTORS = "contributors";
-    private final static String KEY_TOTAL_AMOUNT = "total:amount";
-    private final static String KEY_TOTAL_CNT = "total:cnt";
-
     public static JedisPool getJpool() {
         if (jpool == null) {
             createPool();
@@ -46,10 +41,10 @@ public class DAO {
         Exception exception = null;
 
         try {
-            List<String> lastListS = jedis.lrange(KEY_LAST, 0, 19);
-            Set<String> toplistS = jedis.zrevrange(KEY_CONTRIBUTORS, 0, 19);
-            String totalAmountS = jedis.get(KEY_TOTAL_AMOUNT);
-            String totalCntS = jedis.get(KEY_TOTAL_CNT);
+            List<String> lastListS = jedis.lrange("last", 0, 19);
+            Set<String> toplistS = jedis.zrevrange("contributors", 0, 9);
+            String totalAmountS = jedis.get("total:amount");
+            String totalCntS = jedis.get("total:cnt");
 
             List<Contribution> lastList = new ArrayList<Contribution>();
             for (String json : lastListS) {
